@@ -1,0 +1,8 @@
+num_osds 640
+min_x 0
+max_x 999
+num_replicas 3
+bucket_down_ratio 0
+dev_down_ratio 0
+num_batches 10
+num_in_ssd 1

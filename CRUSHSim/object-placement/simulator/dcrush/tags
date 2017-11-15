@@ -1,0 +1,106 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CrushBucket	crush_bucket.py	/^class CrushBucket():$/;"	c
+CrushHash	crush_hash.py	/^class CrushHash():$/;"	c
+CrushMap	crush_map.py	/^class CrushMap():$/;"	c
+CrushRule	crush_rule.py	/^class CrushRule():$/;"	c
+CrushRuleMask	crush_rule.py	/^class CrushRuleMask():$/;"	c
+CrushRuleStep	crush_rule.py	/^class CrushRuleStep():$/;"	c
+ListCrushBucket	crush_bucket.py	/^class ListCrushBucket(CrushBucket):$/;"	c
+Osd	crush_dyn.py	/^class Osd():$/;"	c
+StrawCrushBucket	crush_bucket.py	/^class StrawCrushBucket(CrushBucket):$/;"	c
+TreeCrushBucket	crush_bucket.py	/^class TreeCrushBucket(CrushBucket):$/;"	c
+Type_NonSSD	crush_dyn.py	/^    Type_NonSSD = 1$/;"	v	class:Osd
+Type_SSD	crush_dyn.py	/^    Type_SSD = 2$/;"	v	class:Osd
+UniformCrushBucket	crush_bucket.py	/^class UniformCrushBucket(CrushBucket):$/;"	c
+__init__	crush_bucket.py	/^    def __init__(self):$/;"	m	class:CrushBucket
+__init__	crush_bucket.py	/^    def __init__(self):$/;"	m	class:ListCrushBucket
+__init__	crush_bucket.py	/^    def __init__(self):$/;"	m	class:StrawCrushBucket
+__init__	crush_bucket.py	/^    def __init__(self):$/;"	m	class:TreeCrushBucket
+__init__	crush_bucket.py	/^    def __init__(self):$/;"	m	class:UniformCrushBucket
+__init__	crush_dyn.py	/^    def __init__(self, osd_no, osd_type):$/;"	m	class:Osd
+__init__	crush_hash.py	/^    def __init__(self):$/;"	m	class:CrushHash
+__init__	crush_map.py	/^    def __init__(self):$/;"	m	class:CrushMap
+__init__	crush_rule.py	/^    def __init__(self):$/;"	m	class:CrushRule
+__init__	crush_rule.py	/^    def __init__(self):$/;"	m	class:CrushRuleMask
+__init__	crush_rule.py	/^    def __init__(self, op, arg1, arg2):$/;"	m	class:CrushRuleStep
+access_objects	crush_dyn.py	/^    def access_objects(self, obj_id):$/;"	m	class:Osd
+add_bucket	crush_map.py	/^    def add_bucket(self, crush_bucket, bucket_id):$/;"	m	class:CrushMap
+add_bucket_item	crush_bucket.py	/^    def add_bucket_item(self, item, weight):$/;"	m	class:ListCrushBucket
+add_bucket_item	crush_bucket.py	/^    def add_bucket_item(self, item, weight):$/;"	m	class:StrawCrushBucket
+add_bucket_item	crush_bucket.py	/^    def add_bucket_item(self, item, weight):$/;"	m	class:TreeCrushBucket
+add_bucket_item	crush_bucket.py	/^    def add_bucket_item(self, item, weight):$/;"	m	class:UniformCrushBucket
+add_objects	crush_dyn.py	/^    def add_objects(self, obj_id, obj_ranking, primary):$/;"	m	class:Osd
+add_rule	crush_map.py	/^    def add_rule(self, crush_rule, rule_id):$/;"	m	class:CrushMap
+add_rule_step	crush_rule.py	/^    def add_rule_step(self, rule_step):$/;"	m	class:CrushRule
+adjust_item_weight	crush_bucket.py	/^    def adjust_item_weight(self, item, item_weight):$/;"	m	class:ListCrushBucket
+adjust_item_weight	crush_bucket.py	/^    def adjust_item_weight(self, item, item_weight):$/;"	m	class:StrawCrushBucket
+adjust_item_weight	crush_bucket.py	/^    def adjust_item_weight(self, item, item_weight):$/;"	m	class:TreeCrushBucket
+adjust_item_weight	crush_bucket.py	/^    def adjust_item_weight(self, item, item_weight):$/;"	m	class:UniformCrushBucket
+adjust_weights	main.py	/^def adjust_weights(crush_map, weights, bucket_down_ratio, dev_down_ratio):$/;"	f
+buckettype_to_number	main.py	/^def buckettype_to_number(buckettype):$/;"	f
+build_crush_map	main.py	/^def build_crush_map(num_osds, layers):$/;"	f
+choose_first_n_items	crush_map.py	/^    def choose_first_n_items(self, crush_bucket, weight, weight_max, x, num_replicas, type, out, outpos, tries, recurse_tries, local_tries, local_fallback_tries, recurse_to_leaf, out2):$/;"	m	class:CrushMap
+choose_item	crush_bucket.py	/^    def choose_item(self, x, r):$/;"	m	class:ListCrushBucket
+choose_item	crush_bucket.py	/^    def choose_item(self, x, r):$/;"	m	class:StrawCrushBucket
+choose_item	crush_bucket.py	/^    def choose_item(self, x, r):$/;"	m	class:TreeCrushBucket
+choose_item	crush_bucket.py	/^    def choose_item(self, x, r):$/;"	m	class:UniformCrushBucket
+choose_item_by_rand_perm	crush_bucket.py	/^    def choose_item_by_rand_perm(self, x, r):$/;"	m	class:CrushBucket
+clear_map_threshold	crush_map.py	/^    def clear_map_threshold(self):$/;"	m	class:CrushMap
+exist_objects	crush_dyn.py	/^    def exist_objects(self, obj_id):$/;"	m	class:Osd
+finalize	crush_map.py	/^    def finalize(self):$/;"	m	class:CrushMap
+find_rule	crush_map.py	/^    def find_rule(self, rule_set, type, size):$/;"	m	class:CrushMap
+get_alg_name	crush_bucket.py	/^    def get_alg_name(self, alg):$/;"	m	class:CrushBucket
+get_item_weight	crush_bucket.py	/^    def get_item_weight(self):$/;"	m	class:UniformCrushBucket
+get_item_weight	crush_bucket.py	/^    def get_item_weight(self, pos):$/;"	m	class:ListCrushBucket
+get_item_weight	crush_bucket.py	/^    def get_item_weight(self, pos):$/;"	m	class:StrawCrushBucket
+get_item_weight	crush_bucket.py	/^    def get_item_weight(self, pos):$/;"	m	class:TreeCrushBucket
+get_left_child	crush_bucket.py	/^    def get_left_child(self, n):$/;"	m	class:TreeCrushBucket
+get_mapping_using_rule	crush_map.py	/^    def get_mapping_using_rule(self, rule_id, x, weight, weight_max, result_max):$/;"	m	class:CrushMap
+get_next_bucket_id	crush_map.py	/^    def get_next_bucket_id(self):$/;"	m	class:CrushMap
+get_node_height	crush_bucket.py	/^    def get_node_height(self, n):$/;"	m	class:TreeCrushBucket
+get_node_index	crush_bucket.py	/^    def get_node_index(self, pos):$/;"	m	class:TreeCrushBucket
+get_parent_node	crush_bucket.py	/^    def get_parent_node(self, n):$/;"	m	class:TreeCrushBucket
+get_right_child	crush_bucket.py	/^    def get_right_child(self, n):$/;"	m	class:TreeCrushBucket
+get_sys_throughput	main.py	/^def get_sys_throughput(crush_map, osd_list, new_weights, min_ruleno, max_ruleno, min_x, max_x, num_replicas, num_in_ssd):$/;"	f
+get_tree_depth	crush_bucket.py	/^    def get_tree_depth(self, size):$/;"	m	class:TreeCrushBucket
+hash_32_1	crush_hash.py	/^    def hash_32_1(self, a):$/;"	m	class:CrushHash
+hash_32_2	crush_hash.py	/^    def hash_32_2(self, a, b):$/;"	m	class:CrushHash
+hash_32_3	crush_hash.py	/^    def hash_32_3(self, a, b, c):$/;"	m	class:CrushHash
+hash_32_4	crush_hash.py	/^    def hash_32_4(self, a, b, c, d):$/;"	m	class:CrushHash
+hash_32_5	crush_hash.py	/^    def hash_32_5(self, a, b, c, d, e):$/;"	m	class:CrushHash
+hash_32_mix	crush_hash.py	/^    def hash_32_mix(self, a, b, c):$/;"	m	class:CrushHash
+is_leaf	crush_bucket.py	/^    def is_leaf(self, n):$/;"	m	class:TreeCrushBucket
+is_right_child	crush_bucket.py	/^    def is_right_child(self, n, h):$/;"	m	class:TreeCrushBucket
+item_exists	crush_map.py	/^    def item_exists(self, id):$/;"	m	class:CrushMap
+item_is_out	crush_map.py	/^    def item_is_out(self, weight, weight_max, item, x):$/;"	m	class:CrushMap
+main	main.py	/^def main(niters, show_details):$/;"	f
+make_bucket	crush_bucket.py	/^    def make_bucket(self, hash, type, size, items, item_weight):$/;"	m	class:UniformCrushBucket
+make_bucket	crush_bucket.py	/^    def make_bucket(self, hash, type, size, items, item_weights):$/;"	m	class:ListCrushBucket
+make_bucket	crush_bucket.py	/^    def make_bucket(self, hash, type, size, items, item_weights):$/;"	m	class:StrawCrushBucket
+make_bucket	crush_bucket.py	/^    def make_bucket(self, hash, type, size, items, item_weights):$/;"	m	class:TreeCrushBucket
+make_rule	crush_rule.py	/^    def make_rule(self, len, rule_set, type, min_size, max_size):$/;"	m	class:CrushRule
+map_threshold	crush_map.py	/^    def map_threshold(self, threshold):$/;"	m	class:CrushMap
+niters	main.py	/^            niters = temp$/;"	v
+niters	main.py	/^    niters = 1$/;"	v
+print_crush_map	main.py	/^def print_crush_map(crush_map):$/;"	f
+print_replica_info	main.py	/^def print_replica_info(osd_list):$/;"	f
+remove_bucket	crush_map.py	/^    def remove_bucket(self, crush_bucket):$/;"	m	class:CrushMap
+remove_bucket_item	crush_bucket.py	/^    def remove_bucket_item(self, item):$/;"	m	class:ListCrushBucket
+remove_bucket_item	crush_bucket.py	/^    def remove_bucket_item(self, item):$/;"	m	class:StrawCrushBucket
+remove_bucket_item	crush_bucket.py	/^    def remove_bucket_item(self, item):$/;"	m	class:TreeCrushBucket
+remove_bucket_item	crush_bucket.py	/^    def remove_bucket_item(self, item):$/;"	m	class:UniformCrushBucket
+remove_objects	crush_dyn.py	/^    def remove_objects(self, obj_id): # only use for update$/;"	m	class:Osd
+reweight_bucket	crush_map.py	/^    def reweight_bucket(self, crush_bucket):$/;"	m	class:CrushMap
+set_rule_mask	crush_rule.py	/^    def set_rule_mask(self, rule_set, type, min_size, max_size):$/;"	m	class:CrushRuleMask
+set_rule_step	crush_rule.py	/^    def set_rule_step(self, op, arg1, arg2):$/;"	m	class:CrushRuleStep
+set_staw_value	crush_bucket.py	/^    def set_staw_value(self, size, item_weights):$/;"	m	class:StrawCrushBucket
+show_details	main.py	/^        show_details = 1$/;"	v
+show_details	main.py	/^    show_details = 0$/;"	v
+temp	main.py	/^        temp = int(sys.argv[1])$/;"	v
+test_crush	main.py	/^def test_crush(crush_map, osd_list, min_x, max_x, num_replicas, dev_weights, bucket_down_ratio, dev_down_ratio, num_in_ssd, ruleno, show_details, niters):$/;"	f
+update	crush_dyn.py	/^    def update(self, crush_map, osd_list, new_weights, num_replicas, num_in_ssd):$/;"	m	class:Osd

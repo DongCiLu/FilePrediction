@@ -1,0 +1,73 @@
+\section{Related Work}
+\label{sec:relatedwork}
+
+In this section, we provide a brief introduction on several existing works
+which are related to our paper. We classify these existing works into two
+categories. The first category consists of existing works on data placement
+algorithms for distributed storage systems, while the second consists of those
+on hybrid storage systems which aim to leverage SSD drives to improve data
+access performance.
+
+As large-scale distributed storage systems have been extensively used in HPC
+area, the problem of distributing several petabytes of data among hundreds or
+thousands of storage devices becomes more and more critical. To address this
+problem, many data placement algorithms have been proposed. For instance,
+Distributed Hash Tables (DHTs) have been used to place and locate data objects
+in P2P systems \cite{Stoica2001, Ratnasamy2001, Cai2004}. Another replica
+placement scheme called chain placement was also proposed and applied to some
+P2P and LAN storage systems \cite{Rowstron2001, Lee1996, MacCormick2004}.
+Honicky and Miller presented a family of algorithms named RUSH
+\cite{honicky04} which utilizes a mapping function to evenly map replicated
+objects to a scalable collection of storage devices and meanwhile supports the
+efficient addition and removal of weighted devices.
+
+To resolve the reliability and replication issues RUSH algorithms suffered in
+practice usage, Weil et al. proposed a scalable pseudo-random data
+distribution algorithm named CRUSH \cite{Weil2006} upon which our algorithm is
+based. Besides optimally distributing data to available resources and
+efficiently reorganizing data after adding or removing storage devices, CRUSH
+exploits flexible constrains on replica placement to maximize the data safety
+in the situation of hardware failures. CRUSH algorithm allows the
+administrator to assign different weights to storage devices so that
+administrator can control the relative amount of data each device is
+responsible for storing. However, the device weights used in CRUSH algorithm
+only reflect the capacities of storage devices, which means CRUSH algorithm
+might not be effective anymore for hybrid storage systems consists of both SSD
+and HDD devices since these two kinds of storage devices have totally
+different performance characteristics.
+
+Existing works on hybrid storage systems usually concentrate on two major
+directions: either using a small amount of SSD-based storage as a cache
+between main memory and hard disk drives or integrating SSD and HDD together
+to form a hybrid storage system. Because of SSD devices' high cost and small
+capacity, the cache-based solution is understandable and common. For example,
+Srinivasan et al. designed a block-level cache named Flashcache
+\cite{Flashcache} between DRAM and hard disks using SSD devices. Zhang et al.
+proposed iTransformer \cite{Zhang2012} which exploits a small SSD to schedule
+requests for the data on disks so that high disk efficiency can be achieved.
+SieveStore \cite{Pritchett2010} adopts a selective caching approach in which
+the access count of each block is tracked and the most popular block is cached
+in SSD device.
+
+Recently, efforts have been made to combine SSD and HDD together to construct
+a hybrid storage system in which SSD is used as a storage device same as HDD
+rather than a cache. Chen et al. designed and implemented a high performance
+hybrid storage system named Hystor \cite{Chen2011}, which identifies data
+blocks that either can result in long latencies or are semantically critical
+on hard disks and store them in SSDs for future accesses. In order to reduce
+random write traffic to SSD, Ren et al. proposed I\_CASH \cite{Yang2011} which
+exploits the spacial locality of data access and only store seldom-changed
+reference data blocks on SSD. Besides, ComboDrive \cite{Payer2009}
+concatenates SSD and HDD into one address space via a hardware-based solution
+so that certain data on HDD can be moved into the faster SSD space.
+
+There are two main differences between existing works on hybrid storage
+systems and our approach: First, most existing works on hybrid storage systems
+only consider how to improve the utilization of SSD devices while they ignore
+the reliability and replication issues that data placement algorithms, such as
+CRUSH, try to resolve in HPC environment; Second, our approach tries to
+monitor the usage of data blocks and store performance critical data on SSD
+devices which is kind of similar to several existing works, like
+\cite{Chen2011, Luo2012}, but beyond this, our approach applies machine
+learning algorithm to predict the future usage of data blocks and store
+potential critical data on SSD in advance.

@@ -1,0 +1,164 @@
+
+
+% This is a small sample LaTeX input file (Version of 10 April 1994)
+%
+% Use this file as a model for making your own LaTeX input file.
+% Everything to the right of a  %  is a remark to you and is ignored by LaTeX.
+
+% The Local Guide tells how to run LaTeX.
+
+% WARNING!  Do not type any of the following 10 characters except as directed:
+%                &   $   #   %   _   {   }   ^   ~   \
+
+%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the LaTeX source for the instructions to authors using
+% the LaTeX document class 'llncs.cls' for contributions to
+% the Lecture Notes in Computer Sciences series.
+% http://www.springer.com/lncs       Springer Heidelberg 2006/05/04
+%
+% It may be used as a template for your own input - copy it
+% to a new file with a new name and use it as the basis
+% for your article.
+%
+% NB: the document class 'llncs' has its own and detailed documentation, see
+% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[conference]{IEEEtran}
+
+%% INFOCOM 2011 addition:
+\makeatletter
+\def\ps@headings{%
+\def\@oddhead{\mbox{}\scriptsize\rightmark \hfil \thepage}%
+\def\@evenhead{\scriptsize\thepage \hfil \leftmark\mbox{}}%
+\def\@oddfoot{}%
+\def\@evenfoot{}}
+\makeatother
+\pagestyle{headings}
+%\usepackage{latex8}
+\usepackage{setspace}
+\usepackage{times}
+%\usepackage{kbordermatrix}% http://www.hss.caltech.edu/~kcb/LaTeX.shtml
+\newcommand{\noindex}{\hspace*{-0.8em}}%
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{inputenc}
+\usetikzlibrary{arrows}
+\usepackage{epsfig,xspace}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{verbatim}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{mathtools}
+%\usepackage{fix2col}
+\usepackage{multirow}
+\usepackage{varwidth}
+\usepackage{algorithm}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+%\usepackage[dvips]{graphicx}
+%\usepackage{mss}
+%\usepackage{subfigure}
+\usepackage{subfigure}
+%\usepackage{nopageno}
+%\usepackage{fix2col}
+
+\IEEEoverridecommandlockouts
+\lstset{
+  basicstyle=\footnotesize,
+  columns=flexible,
+  morecomment=[s]{/*}{*/}}
+
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{lemma}[Theorem]{Lemma}
+\newtheorem{proposition}[Theorem]{Proposition}
+\newtheorem{corollary}[Theorem]{Corollary}
+
+\newcommand{\remove}[1]{ }
+\newcommand{\eg}{\emph{e.g.}}
+\newcommand{\ie}{\emph{i.e.}}
+
+\newenvironment{proof}[1][Proof:]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.6em width0.5em depth0.0em\fi}
+
+\def\sqzhuge{\vspace{-14pt}}
+\def\sqzsec{\vspace{-10pt}}
+\def\sqzsmall{\vspace{-8pt}}
+\def\sqztiny{\vspace{-4pt}}
+\remove{
+\usepackage{vmargin}
+\setpapersize{USletter}
+\setmarginsrb{2.54cm}{2.54cm}{2.54cm}{1.5cm}{0pt}{0mm}{0pt}{8mm}
+\setcounter{secnumdepth}{3}
+}
+\newcommand\Mark[1]{\textsuperscript#1}
+
+\begin{document}
+\pagenumbering{gobble}
+
+\title{SSD-Optimized Workload Placement with Real-time Learning in HPC Environments}
+\author{\IEEEauthorblockN{Lipeng Wan\IEEEauthorrefmark{1}, Zheng Lu\IEEEauthorrefmark{1}, Qing Cao\IEEEauthorrefmark{1}, Feiyi Wang\IEEEauthorrefmark{2}, Oral Sarp\IEEEauthorrefmark{2}, and Bradley Settlemyer\IEEEauthorrefmark{2}}\\
+\vspace{-0.1in}
+%\begin{tabular}{*{2}{>{\centering}p{.45\textwidth}}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Department of Electrical Engineering and Computer Science\\University of Tennessee, Knoxville, TN, US\\
+Email: \{lwan1, zhenglu, cao\}@utk.edu} \\
+%\vspace{-0.1in}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}Oake Ridge National Laboratory\\ Oak Ridge, TN, US\\
+Email: \{fwang2, oralhs, settlemyerbw\}@ornl.gov}
+%\end{tabular}
+\vspace{-0.1in}
+}
+
+\vspace{-0.4in}
+\maketitle
+
+
+\vspace{-1in}
+\begin{abstract}
+In recent years, SSD drives have emerged as a type of viable alternative storage hardware to conventional hard drives (HDD) due to their high speed and decreasing cost. However, the durability of SSD chips are still considerably limited and thus, pure SSD based solutions have not been economically feasible. In this paper, we focus on the problem of workload and storage placement in HPC (High-Performance Computing) environments, and propose
+a hybrid solution where SSDs and HDDs are used together as the storage hardware for object placement purposes. Based on an analytical model, we propose an optimized scheme that places workload on storage units provided by SSDs and HDDs in a topology-aware manner so that their performance and lifetime may be optimized. The scheme is also enhanced with an adaptive learning algorithm where real-time classification methods are employed to determine the best placement of objects during runtime. We present preliminary results based on this approach using a simulator we developed to show that the analytic model approach can dynamically adjust storage placement as workloads evolve to enhance performance and lifetime.
+
+
+\end{abstract}
+
+%\IEEEpeerreviewmaketitle
+
+
+\input{intro}
+\input{relatedwork}
+\input{design}
+%\input{analysis}
+\input{evaluation}
+%\input{application}
+\input{conclusion}
+
+{\small
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\bibliography{reference}
+}
+
+\end{document}

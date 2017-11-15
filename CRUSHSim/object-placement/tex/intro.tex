@@ -1,0 +1,39 @@
+\section{Introduction}
+\label{intro}
+
+Providing resilient and fast storage service for HPC applications remains a critical challenge given the large demands on storage space as well as the possibility of disk drive failures~\cite{}. Therefore, it is crucial to schedule storage properly among multiple drives based on the nature of workloads as well as the properties of the underlying hardware. On the other hand, both the workloads and the underlying hardware evolve over time, meaning that algorithms have to be designed to take these changes into their consideration.
+
+One particular trend that has emerged in recent years is the use of SSD drives in storage to provide \emph{premium} services, as the reading and writing speed for SSD drives are typically faster compared to the hard drives~\cite{}. On the other hand, SSD drives also have different failure patterns as repeated reading and writing of the same blocks will cause the drives to fail. Furthermore, SSD drives are also limited in capacity, meaning that they can only serve as a cache, rather than replacements, for conventional hard disks. Therefore, how to integrate SSD drives successfully into the design of a storage area network becomes a challenge that modern HPC applications have to handle.
+
+Existing algorithms to integrate SSD drives can already be found in the literature~\cite{}. These methods, while effective, suffer from three drawbacks. First, they are largely based on heuristic algorithm designs that are either developed in isolation with the runtime workload, or are based on static assumptions on the workload patterns, making them unsuitable when the underlying workloads and demands change over time. Second, they do not properly handle user demands, where specific requirements on the data storage placement may exist. Finally, they do not consider drive failures, which has considerable impact when underlying hardware becomes unavailable.
+
+To address these problems, we present a holistic approach where we aim to develop a framework that adaptively classifies workloads, adjusts the placement of storage objects, and fulfills the needs of the users with regard to their storage requirements. By adaptive, we mean that the developed algorithm can self-tune to the underlying hardware and software environments. Our developed algorithm has the following assumptions. First, we consider that the storage hardware consists of both conventional hard drives and SSD drives. SSD drives are typically smaller in capacity, but faster in terms of speed. Hard drives and SSD drives have different parameters for failures. Second, the user may request changes to the placement of replications for data, as well as the number of replications, over the workload lifetime. We assume such changes could come in a high rate, leading to rapid replacement changes to be generated. Therefore, it is necessary that our modeling algorithms keep up-to-date predictions on the objects' future access rates so that they can rebalance such object storage in real time.
+
+Specifically, the proposed framework contains two major novel contributions: machine learning based workload classification and demand-aware object placements. In both parts, we present novel algorithms and evaluate their performance. We next describe these two contributions separately.
+
+In the first contribution, our key idea is to classify data objects and their access patterns based on a fusion of multiple information sources including the history of data accesses and the workloads that access them in the past. Based on such information, we determine those objects that are most likely to be frequently accessed in the future, and we move them to the SSD-powered drives so that their access latency can be minimized, under the constraint that the moving cost will be offset by the access latency savings. The detailed classification model for the objects can be flexible: our preliminary study classifies each data object during runtime based on a Markov chain model that is enhanced by machine learning techniques. Specifically, our goal is to predict whether this data object will be accessed frequently in the future. Once such predictions are made, they will be used as improvements to the existing algorithms such as the CRUSH algorithm that has been widely used for data storage placement in high performance computing platforms.
+
+In the second contribution, we take into account the underlying network topology and bandwidth in our modeling, so that we can periodically recalculate the object deployment when something changes. To this end, we also take into account the user requirements, such as their preferences on where to place the objects, and the underlying topology relations. For example, if the user specifies that no two copies of the same storage object should be on the same rack, such a requirement should be fulfilled properly by the storage algorithm.
+
+%The key contributions of the developed algorithm are listed as follows: first, we present an access-frequency sensitive algorithm for extending the CRUSH algorithm. The core methodology involves modeling the different storage services based on their access latency parameters, and try to minimize the overall access time through an optimization problem.
+%
+%Second, we observe that given that users' request patterns change over time, it is time-consuming to re-solve the problem every time the user input changes. Therefore, we develop a learning algorithm to classify the input patterns, and generate the output parameters automatically after the training phase. This approach allows the extension of CRUSH to handle different application requirements highly efficiently.
+
+
+The rest of this paper is organized as follows. We describe the related work in Section~\ref{sec:relatedwork}. The design is described in Section~\ref{sec:design}.   The performance evaluation is given in Section~\ref{sec:evaluation}. The application case study is given in Section~\ref{sec:application}. We provide conclusions in Section~\ref{sec:conclusion}. %We survey related work in Section~\ref{sec:related}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
